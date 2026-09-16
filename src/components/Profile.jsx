@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import { motion } from "framer-motion";
 
 export default function Profile() {
@@ -12,7 +13,7 @@ export default function Profile() {
             <img
                 src="https://github.com/nichehlikes15.png"
                 alt="Oliver"
-                className="h-40 w-40 rounded-full border border-zinc-700 object-cover"
+                className="h-40 w-40 rounded-full border border-control object-cover"
             />
 
             <div>
@@ -20,19 +21,20 @@ export default function Profile() {
                     Oliver Tappin
                 </h2>
 
-                <div className="mt-3 flex items-center gap-4 text-xs text-zinc-500">
+                <div className="mt-3 flex items-center gap-4 text-xs text-muted">
                     <a
                         href="https://github.com/nichehlikes15"
                         target="_blank"
                         rel="noreferrer"
-                        className="transition hover:text-white"
+                        className="flex items-center gap-1.5 transition hover:text-primary"
                     >
+                        <SiGithub size={15} />
                         GitHub
                     </a>
 
                     <a
                         href="mailto:olivertappin08@gmail.com"
-                        className="flex items-center gap-1.5 transition hover:text-white"
+                        className="flex items-center gap-1.5 transition hover:text-primary"
                     >
                         <Mail size={15} />
                         Email
