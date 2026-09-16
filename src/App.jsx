@@ -14,6 +14,7 @@ export default function App() {
     });
     const [pendingIsDark, setPendingIsDark] = useState(null);
     const [isCommittingTheme, setIsCommittingTheme] = useState(false);
+    const [transitionScrollY, setTransitionScrollY] = useState(0);
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -31,16 +32,21 @@ export default function App() {
         }
 
         const nextIsDark = !isDark;
+        const currentScrollY = window.scrollY;
+
+        setTransitionScrollY(currentScrollY);
         setPendingIsDark(nextIsDark);
 
         window.setTimeout(() => {
             setIsCommittingTheme(true);
             setIsDark(nextIsDark);
             localStorage.setItem("portfolio-theme", nextIsDark ? "dark" : "light");
+            window.scrollTo(0, currentScrollY);
 
             window.setTimeout(() => {
                 setPendingIsDark(null);
                 setIsCommittingTheme(false);
+                window.scrollTo(0, currentScrollY);
             }, 80);
         }, 720);
     }
@@ -58,6 +64,7 @@ export default function App() {
                 <div
                     className="theme-overlay"
                     data-theme={pendingIsDark ? "dark" : "light"}
+                    style={{ "--theme-scroll-y": `${transitionScrollY}px` }}
                     aria-hidden="true"
                 >
                     <ThemeContent
