@@ -2,15 +2,15 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Profile from "./Profile";
 
-export default function Hero() {
+export default function Hero({ disableAnimation = false }) {
     return (
         <section className="pt-14">
-            <Profile />
+            <Profile disableAnimation={disableAnimation} />
 
             <motion.div
-                initial={{ opacity: 0, y: 15 }}
+                initial={disableAnimation ? false : { opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={disableAnimation ? { duration: 0 } : { duration: 0.5, delay: 0.1 }}
                 className="mt-7"
             >
                 <h1 className="text-3xl font-medium leading-tight tracking-[-0.03em] sm:text-4xl">

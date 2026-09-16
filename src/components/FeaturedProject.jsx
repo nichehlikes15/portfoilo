@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 
-export default function FeaturedProject() {
+export default function FeaturedProject({ disableAnimation = false }) {
     const project = projects.find((project) => project.featured);
 
     return (
@@ -10,9 +10,9 @@ export default function FeaturedProject() {
             href={project.github}
             target="_blank"
             rel="noreferrer"
-            initial={{ opacity: 0, y: 20 }}
+            initial={disableAnimation ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={disableAnimation ? { duration: 0 } : { duration: 0.5, delay: 0.2 }}
             className="group mt-24 block overflow-hidden rounded-lg border border-dashed border-control bg-panel transition hover:border-control-hover"
         >
             <div className="grid md:grid-cols-[42%_58%]">

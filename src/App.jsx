@@ -12,7 +12,8 @@ export default function App() {
     const [isDark, setIsDark] = useState(() => {
         return localStorage.getItem("portfolio-theme") !== "light";
     });
-    const [isChangingTheme, setIsChangingTheme] = useState(false);
+    const [pendingIsDark, setPendingIsDark] = useState(null);
+    const [isCommittingTheme, setIsCommittingTheme] = useState(false);
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -25,29 +26,63 @@ export default function App() {
     }, []);
 
     function toggleTheme() {
+        if (pendingIsDark !== null) {
+            return;
+        }
+
         const nextIsDark = !isDark;
+        setPendingIsDark(nextIsDark);
 
-        setIsDark(nextIsDark);
-        setIsChangingTheme(true);
-        localStorage.setItem("portfolio-theme", nextIsDark ? "dark" : "light");
+        window.setTimeout(() => {
+            setIsCommittingTheme(true);
+            setIsDark(nextIsDark);
+            localStorage.setItem("portfolio-theme", nextIsDark ? "dark" : "light");
 
-        window.setTimeout(() => setIsChangingTheme(false), 450);
+            window.setTimeout(() => {
+                setPendingIsDark(null);
+                setIsCommittingTheme(false);
+            }, 80);
+        }, 720);
     }
 
     return (
-        <div
-            className={`theme-surface min-h-screen text-primary ${isChangingTheme ? "theme-changing" : ""}`}
-            data-theme={isDark ? "dark" : "light"}
-        >
-            <Navbar isDark={isDark} onToggleTheme={toggleTheme} />
+        <>
+            <div
+                className={`theme-surface min-h-screen text-primary ${isCommittingTheme ? "theme-committing" : ""}`}
+                data-theme={isDark ? "dark" : "light"}
+            >
+                <ThemeContent isDark={isDark} onToggleTheme={toggleTheme} />
+            </div>
+
+            {pendingIsDark !== null && (
+                <div
+                    className="theme-overlay"
+                    data-theme={pendingIsDark ? "dark" : "light"}
+                    aria-hidden="true"
+                >
+                    <ThemeContent
+                        isDark={pendingIsDark}
+                        onToggleTheme={toggleTheme}
+                        isOverlay
+                    />
+                </div>
+            )}
+        </>
+    );
+}
+
+function ThemeContent({ isDark, onToggleTheme, isOverlay = false }) {
+    return (
+        <>
+            <Navbar isDark={isDark} onToggleTheme={onToggleTheme} />
 
             <main className="mx-auto max-w-[680px] px-5">
-                <Hero />
+                <Hero disableAnimation={isOverlay} />
                 <About />
-                <FeaturedProject />
+                <FeaturedProject disableAnimation={isOverlay} />
                 <Contact />
                 <GithubActivity isDark={isDark} />
             </main>
-        </div>
+        </>
     );
 }

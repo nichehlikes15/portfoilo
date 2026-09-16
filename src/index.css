@@ -55,15 +55,33 @@ body {
     transition-timing-function: ease;
 }
 
-.theme-surface.theme-changing::after {
+@property --theme-sweep {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: -110%;
+}
+
+.theme-overlay {
     position: fixed;
     inset: 0;
     z-index: 100;
     pointer-events: none;
-    background: var(--action);
-    content: "";
-    opacity: 0;
-    animation: theme-flash 450ms ease-out;
+    overflow: hidden;
+    background: var(--surface);
+    color: var(--text-primary);
+    --theme-sweep: -110%;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(var(--theme-sweep) + 100%),
+        0 var(--theme-sweep)
+    );
+    animation: theme-reveal 720ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.theme-committing,
+.theme-committing * {
+    transition: none !important;
 }
 
 .theme-toggle {
@@ -98,9 +116,15 @@ body {
 .border-control { border-color: var(--control); }
 .border-control-hover:hover { border-color: var(--control-hover); }
 
-@keyframes theme-flash {
-    0% { opacity: 0.14; }
-    100% { opacity: 0; }
+@keyframes theme-reveal {
+    from { --theme-sweep: -110%; }
+    to { --theme-sweep: 110%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-overlay {
+        animation-duration: 1ms;
+    }
 }
 
 * {

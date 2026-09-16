@@ -2,12 +2,12 @@ import { Mail } from "lucide-react";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { motion } from "framer-motion";
 
-export default function Profile() {
+export default function Profile({ disableAnimation = false }) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={disableAnimation ? false : { opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={disableAnimation ? { duration: 0 } : { duration: 0.5 }}
             className="flex items-center gap-5"
         >
             <img
