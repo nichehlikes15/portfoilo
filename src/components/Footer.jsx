@@ -46,7 +46,7 @@ export default function Footer() {
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <p className="text-[13px] italic text-muted">
-                        Keep building until it becomes second nature.
+                        Driven by curiosity, built with code.
                     </p>
 
                     <div className="mt-3 flex items-center gap-2 text-xs">
@@ -59,15 +59,7 @@ export default function Footer() {
                         </span>
 
                         <span className="text-muted">
-                            Still building
-                        </span>
-
-                        <span className="text-subtle">
-                            /
-                        </span>
-
-                        <span className="text-muted">
-                            UK
+                            England - Essex
                         </span>
                     </div>
                 </div>

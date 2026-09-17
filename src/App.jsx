@@ -5,6 +5,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import GithubActivity from "./components/GithubActivity";
 import Footer from "./components/Footer";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
 
 import { useEffect, useState } from "react";
 import Lenis from "lenis";
@@ -88,6 +90,8 @@ function ThemeContent({ isDark, onToggleTheme, isOverlay = false }) {
                 <Hero disableAnimation={isOverlay} />
                 <About />
                 <FeaturedProject disableAnimation={isOverlay} />
+                <Education />
+                <Experience />
                 <Contact />
                 <GithubActivity isDark={isDark} />
                 <Footer />
