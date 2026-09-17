@@ -17,7 +17,7 @@ export default function Hero({ disableAnimation = false }) {
                     Software Developer
                     <span className="text-subtle">
                         {" "}
-                        — Rust & React
+                        / Rust & React
                     </span>
                 </h1>
 
