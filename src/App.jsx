@@ -4,6 +4,7 @@ import FeaturedProject from "./components/FeaturedProject";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import GithubActivity from "./components/GithubActivity";
+import Footer from "./components/Footer";
 
 import { useEffect, useState } from "react";
 import Lenis from "lenis";
@@ -89,6 +90,7 @@ function ThemeContent({ isDark, onToggleTheme, isOverlay = false }) {
                 <FeaturedProject disableAnimation={isOverlay} />
                 <Contact />
                 <GithubActivity isDark={isDark} />
+                <Footer />
             </main>
         </>
     );
