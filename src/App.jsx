@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import FeaturedProject from "./components/FeaturedProject";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import GithubActivity from "./components/GithubActivity";
 import Footer from "./components/Footer";
@@ -86,14 +85,13 @@ function ThemeContent({ isDark, onToggleTheme, isOverlay = false }) {
         <>
             <Navbar isDark={isDark} onToggleTheme={onToggleTheme} />
 
-            <main className="mx-auto max-w-[680px] px-5">
+            <main className="mx-auto max-w-[780px] px-5">
                 <Hero disableAnimation={isOverlay} />
-                <About />
                 <FeaturedProject disableAnimation={isOverlay} />
                 <Education />
                 <Experience />
-                <Contact />
                 <GithubActivity isDark={isDark} />
+                {/* <Contact /> */}
                 <Footer />
             </main>
         </>

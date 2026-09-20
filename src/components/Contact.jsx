@@ -4,7 +4,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="mt-24 py-16"
+            className="mt-12 py-8"
         >
             <p className="text-[10px] uppercase tracking-[0.25em] text-subtle">
                 Contact

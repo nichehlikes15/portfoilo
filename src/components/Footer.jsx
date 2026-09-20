@@ -42,7 +42,7 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer className="mt-16 border-t border-divider py-10">
+        <footer className="mt-5 border-t border-dashed border-divider py-10">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <p className="text-[13px] italic text-muted">
