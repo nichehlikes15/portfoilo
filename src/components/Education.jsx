@@ -22,15 +22,18 @@ const education = [
 export default function Education({ disableAnimation = false }) {
     return (
         <section className="mt-20">
-            <motion.h2
+            <motion.div
                 initial={disableAnimation ? false : { opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
-                className="text-2xl font-semibold"
+                className="flex items-center gap-4"
             >
-                Education
-            </motion.h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.02em]">
+                    Education
+                </h2>
+                <span className="h-px flex-1 bg-divider" />
+            </motion.div>
 
             <div className="mt-8 space-y-10">
                 {education.map((item, index) => (
@@ -49,11 +52,11 @@ export default function Education({ disableAnimation = false }) {
                         }}
                         className="group relative border-l border-control pl-6"
                     >
-                        <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-control bg-background transition-all duration-200 group-hover:scale-125 group-hover:bg-white" />
+                        <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-control bg-surface transition-all duration-200 group-hover:scale-125 group-hover:border-accent group-hover:bg-accent" />
 
                         <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                             <div>
-                                <h3 className="text-base font-medium transition-colors duration-200 group-hover:text-white">
+                                <h3 className="text-base font-medium transition-colors duration-200 group-hover:text-accent">
                                     {item.institution}
                                 </h3>
 

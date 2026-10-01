@@ -5,6 +5,7 @@ export const projects = [
             "A modern desktop email client built from scratch with Rust and GPUI.",
         technologies: ["Rust", "GPUI", "Mail.tm"],
         github: "https://github.com/nichehlikes15/mailbox",
+        page: "/mailbox",
         featured: true,
     },
     {

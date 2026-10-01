@@ -13,7 +13,11 @@ export default function Profile({ disableAnimation = false }) {
             <img
                 src="https://github.com/nichehlikes15.png"
                 alt="Oliver"
-                className="h-40 w-40 rounded-full border border-control object-cover"
+                className="h-40 w-40 rounded-full border border-control object-cover transition-transform duration-300 hover:scale-[1.03]"
+                style={{
+                    boxShadow:
+                        "0 0 0 6px color-mix(in srgb, var(--accent) 15%, transparent)",
+                }}
             />
 
             <div>
@@ -26,17 +30,15 @@ export default function Profile({ disableAnimation = false }) {
                         href="https://github.com/nichehlikes15"
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-1.5"
+                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-primary"
                         initial="rest"
                         whileHover="hover"
                         variants={{
                             rest: {
                                 y: 0,
-                                color: "currentColor",
                             },
                             hover: {
                                 y: -2,
-                                color: "#ffffff",
                                 transition: {
                                     duration: 0.2,
                                     ease: "easeOut",
@@ -83,17 +85,15 @@ export default function Profile({ disableAnimation = false }) {
 
                     <motion.a
                         href="mailto:olivertappin08@gmail.com"
-                        className="flex items-center gap-1.5"
+                        className="flex items-center gap-1.5 transition-colors duration-200 hover:text-primary"
                         initial="rest"
                         whileHover="hover"
                         variants={{
                             rest: {
                                 y: 0,
-                                color: "currentColor",
                             },
                             hover: {
                                 y: -2,
-                                color: "#ffffff",
                                 transition: {
                                     duration: 0.2,
                                     ease: "easeOut",

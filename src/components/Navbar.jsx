@@ -1,28 +1,29 @@
 import { Moon, Sun } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ isDark, onToggleTheme }) {
     return (
         <nav className="sticky top-0 z-50 border-b border-divider bg-surface/80 backdrop-blur-md">
-            <div className="mx-auto flex h-[65px] max-w-[680px] items-center justify-between px-5">
-                <a
-                    href="#"
+            <div className="mx-auto flex h-[65px] max-w-[780px] items-center justify-between px-5">
+                <Link
+                    to="/"
                     className="text-sm font-semibold tracking-wide text-primary"
                 >
-                    OLIVER
-                </a>
+                    OLIVER<span className="text-accent">.</span>
+                </Link>
 
                 <div className="flex items-center gap-5 text-sm text-muted">
-                    <a href="#work" className="transition hover:text-primary">
+                    <Link to="/#work" className="transition hover:text-primary">
                         Projects
-                    </a>
+                    </Link>
 
-                    <a href="#about" className="transition hover:text-primary">
+                    <Link to="/#about" className="transition hover:text-primary">
                         About
-                    </a>
+                    </Link>
 
-                    <a href="#contact" className="transition hover:text-primary">
+                    <Link to="/#contact" className="transition hover:text-primary">
                         Contact
-                    </a>
+                    </Link>
 
                     <span className="h-4 w-px bg-divider" />
 
