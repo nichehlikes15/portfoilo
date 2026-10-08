@@ -31,15 +31,7 @@ export default function FeaturedProject({ disableAnimation = false }) {
             initial={disableAnimation ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={disableAnimation ? { duration: 0 } : { duration: 0.5, delay: 0.2 }}
-            whileHover={
-                disableAnimation
-                    ? undefined
-                    : {
-                          y: -6,
-                          transition: { duration: 0.25, ease: "easeOut" },
-                      }
-            }
-            className="group mt-24 block overflow-hidden rounded-lg border border-dashed border-control bg-panel transition hover:border-control-hover hover:shadow-[0_24px_48px_-30px_rgba(0,0,0,0.55)]"
+            className="group mt-24 block overflow-hidden rounded-lg border border-dashed border-control bg-panel transition-shadow hover:shadow-[0_18px_40px_-28px_rgba(0,0,0,0.7)]"
         >
             <div className="grid md:grid-cols-[42%_58%]">
                 <div className="flex min-h-[220px] items-center justify-center border-b border-divider bg-panel-muted md:border-b-0 md:border-r">
@@ -78,13 +70,17 @@ export default function FeaturedProject({ disableAnimation = false }) {
                         ))}
                     </div>
 
-                    <span className="mt-5 inline-flex items-center gap-2 rounded-md bg-action px-4 py-2.5 text-xs font-medium text-action-foreground">
+                    <motion.span
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="mt-5 inline-flex items-center gap-2 rounded-md bg-action px-4 py-2.5 text-xs font-medium text-action-foreground"
+                    >
                         View project
                         <ArrowUpRight
                             size={14}
                             className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                         />
-                    </span>
+                    </motion.span>
                 </div>
             </div>
         </motion.a>

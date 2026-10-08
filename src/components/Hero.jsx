@@ -1,8 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRust } from "@fortawesome/free-brands-svg-icons";
-import { faReact } from "@fortawesome/free-brands-svg-icons";
+import { faRust, faReact } from "@fortawesome/free-brands-svg-icons";
 
 import Profile from "./Profile";
 
